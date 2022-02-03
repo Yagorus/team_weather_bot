@@ -6,7 +6,7 @@ variable "image_tag" { }
 variable "app_count" { }
 
 variable "db_name" { 
-    default     = "weather_bot"
+    default     = "weather-bot"
 }
 variable "allocated_storage" {
     default     = 10
