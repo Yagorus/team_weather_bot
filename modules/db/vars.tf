@@ -3,7 +3,6 @@ variable "aws_profile" { }
 variable "environment" { }
 variable "app_name" { }
 variable "image_tag" { }
-variable "ecr_repository_url" { }
 variable "app_count" { }
 
 variable "db_name" { 
