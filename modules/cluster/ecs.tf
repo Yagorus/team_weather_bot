@@ -39,7 +39,7 @@ resource "aws_ecs_task_definition" "aws_ecs_task" {
     secrets = [
      {
        name ="DB_PASSWORD"
-       valueFrom = "${data.aws_ssm_parameter.db_pass.arn}"
+       valueFrom = "${data.aws_ssm_parameter.password_db.arn}"
      }
     ]
 
