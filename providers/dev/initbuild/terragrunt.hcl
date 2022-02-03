@@ -10,16 +10,11 @@ dependency "ecr" {
   config_path = "../ecr"
   skip_outputs = true
 }
-dependency "db" {
-  config_path = "../db"
-  skip_outputs = true
-}
 
 inputs = merge(
     local.secrets.inputs,
   {
     working_dir = format("%s/../../../bot", get_terragrunt_dir())
-    endpoint    = dependency.db.outputs.endpoint
   }
 )
 

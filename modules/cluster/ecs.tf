@@ -1,16 +1,3 @@
-/*
-data "template_file" "cb_bot" {
-  template = file(var.taskdef_template)
-  vars = {
-    app_image      = local.app_image
-    app_port       = var.app_port
-    #aws_region     = var.aws_region
-    env            = var.environment
-    app_name       = var.app_name
-    image_tag      = var.image_tag
-  }
-}
-*/
 resource "aws_ecs_cluster" "aws_ecs_cluster" {
   depends_on = [
     aws_ecs_capacity_provider.capacity_provider,
@@ -43,6 +30,19 @@ resource "aws_ecs_task_definition" "aws_ecs_task" {
         "hostPort": var.app_port
       }
     ]
+  environment = [
+     {
+       name ="APP_DATABASE_URL"
+       value = "postgresql://${aws_db_instance.db_instance.username}:${data.aws_ssm_parameter.password_db.arn}@${aws_db_instance.db_instance.address}/${aws_db_instance.db_instance.name}"
+     }
+  ]
+    secrets = [
+     {
+       name ="DB_PASSWORD"
+       valueFrom = "${data.aws_ssm_parameter.db_pass.arn}"
+     }
+    ]
+
   }
 ])
 

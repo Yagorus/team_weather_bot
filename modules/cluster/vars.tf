@@ -35,3 +35,22 @@ variable "health_check_path" {
 locals {
   app_image = format("%s:%s", var.ecr_repository_url, var.image_tag)
 }
+
+variable "db_name" { 
+    default     = "weather-bot"
+}
+variable "allocated_storage" {
+    default     = 10
+}
+variable "engine" {
+    default     = "postgres"
+}
+variable "engine_version" {
+    default     = "12.9"
+}
+variable "username" {
+    default     = "postgres"
+}
+variable "instance_class" {
+  default = "db.t2.micro" 
+}
