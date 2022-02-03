@@ -15,6 +15,7 @@ ENV APP_WEATHER_KEY=$api_key
 RUN env | grep "APP_TOKEN"
 RUN env | grep "APP_WEATHER_KEY"
 
+
 #workdir
 WORKDIR /weather_bot
 
