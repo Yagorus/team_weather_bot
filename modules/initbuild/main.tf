@@ -15,6 +15,7 @@ resource "null_resource" "build" {
 
         APP_TOKEN = data.aws_ssm_parameter.bot_token.value
         APP_WEATHER_KEY = data.aws_ssm_parameter.bot_key.value
+        
     }
   }
 }

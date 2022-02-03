@@ -6,7 +6,7 @@ variable "image_tag" { }
 variable "app_count" { }
 
 variable "db_name" { 
-    default     = "db"
+    default     = "weather_bot"
 }
 variable "allocated_storage" {
     default     = 10
@@ -18,11 +18,5 @@ variable "engine_version" {
     default     = "12.9"
 }
 variable "username" {
-    default     = 10
+    default     = "weather_admin"
 }
-variable "password" {
-    default     = 10
-}
-variable "parameter_group_name" {
-    default     = 10
- }

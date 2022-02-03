@@ -1,4 +1,5 @@
 resource "aws_db_instance" "db_instance" {
+  depends_on = [aws_ssm_parameter.token]
   allocated_storage    = 10
   engine               = "postgres"
   engine_version       = "12.9"
@@ -17,6 +18,7 @@ resource "random_password" "password" {
 }
 
 resource "aws_ssm_parameter" "token" {
+  depends_on = [random_password.password]
   name  = "password_db"
   type  = "String"
   value = random_password.password.result
