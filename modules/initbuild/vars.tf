@@ -6,6 +6,6 @@ variable "bucket_name" { }
 variable "working_dir" { }
 variable "image_tag" { }
 
-variable "endpoint" { }
+
 variable "bot_token" { }
 variable "bot_key" { }
