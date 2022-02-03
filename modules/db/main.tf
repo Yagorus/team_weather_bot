@@ -5,7 +5,7 @@ resource "aws_db_instance" "db_instance" {
   engine_version       = "12.9"
   instance_class       = "db.t2.micro"
   identifier           = var.db_name
-  username             = "yegor"
+  username             = var.username
   password             = random_password.password.result
   parameter_group_name = "default.postgres12"
   skip_final_snapshot  = true
