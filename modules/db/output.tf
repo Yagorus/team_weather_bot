@@ -13,3 +13,6 @@ output "prot" {
 output "username" {
   value = aws_db_instance.db_instance.username
 }
+output "endpoint" {
+  value = aws_db_instance.db_instance.endpoint
+}
