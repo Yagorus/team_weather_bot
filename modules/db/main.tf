@@ -16,3 +16,13 @@ resource "random_password" "password" {
   special          = true
   override_special = "_%@"
 }
+
+resource "aws_ssm_parameter" "token" {
+  name  = "password_db"
+  type  = "String"
+  value = random_password.password.result
+  overwrite = false
+  tags = {
+    Name = "${var.app_name}-${var.environment}-password_db"
+  }
+}
