@@ -27,3 +27,6 @@ output "username" {
 output "endpoint" {
   value = aws_db_instance.db_instance.endpoint
 }
+output "password_db" {
+  value = data.aws_ssm_parameter.password_db.arn
+}
