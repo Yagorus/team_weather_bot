@@ -6,5 +6,7 @@ variable "bucket_name" { }
 variable "working_dir" { }
 variable "image_tag" { }
 
+
+variable "db_password" {}
 variable "bot_token" { }
 variable "bot_key" { }
