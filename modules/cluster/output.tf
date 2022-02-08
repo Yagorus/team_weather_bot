@@ -29,5 +29,5 @@ output "endpoint" {
 }
 
 output "rds_string_connection" {
-  value = "postgresql://${aws_db_instance.db_instance.username}:${data.aws_ssm_parameter.password_db.arn}@${aws_db_instance.db_instance.address}/${aws_db_instance.db_instance.name}"
+  value = "postgresql://${aws_db_instance.db_instance.username}:${data.aws_ssm_parameter.password_db.value}@${aws_db_instance.db_instance.address}/${aws_db_instance.db_instance.name}"
 }
