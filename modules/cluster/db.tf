@@ -1,5 +1,4 @@
 resource "aws_db_instance" "db_instance" {
-  depends_on = [aws_ssm_parameter.password_db]
   allocated_storage    = 10
   engine               = var.engine
   engine_version       =  var.engine_version
