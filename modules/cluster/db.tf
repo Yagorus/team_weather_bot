@@ -8,7 +8,7 @@ resource "aws_db_instance" "db_instance" {
   db_subnet_group_name      = aws_db_subnet_group.default.name
   identifier           = var.db_name
   username             = var.username
-  name                 = "demo"
+  name                 = "wether_bot"
   password             = data.aws_ssm_parameter.password_db.value
   parameter_group_name = "default.postgres12"
   skip_final_snapshot  = true
