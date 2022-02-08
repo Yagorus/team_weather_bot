@@ -32,8 +32,5 @@ data "aws_iam_policy_document" "ecs_agent" {
 }
 
 data "aws_ssm_parameter" "password_db" {
-    depends_on = [
-      aws_ssm_parameter.password_db
-    ]
   name = var.ssm_db_pass_name
 }
