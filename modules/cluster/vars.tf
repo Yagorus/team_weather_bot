@@ -8,6 +8,8 @@ variable "app_name" { }
 variable "image_tag" { }
 variable "ecr_repository_url" { }
 variable "app_count" { }
+variable "ssm_db_pass_name" {  }
+
 
 variable "taskdef_template" {
   default = "cb_bot.json.tpl"

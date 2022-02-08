@@ -35,5 +35,5 @@ data "aws_ssm_parameter" "password_db" {
     depends_on = [
       aws_ssm_parameter.password_db
     ]
-  name = aws_ssm_parameter.password_db.name
+  name = var.ssm_db_pass_name
 }
