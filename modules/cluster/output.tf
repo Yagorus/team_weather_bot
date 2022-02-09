@@ -27,7 +27,3 @@ output "username" {
 output "endpoint" {
   value = aws_db_instance.db_instance.endpoint
 }
-
-output "rds_string_connection" {
-  value = "postgresql://${aws_db_instance.db_instance.username}:DB_PASSWORD@${aws_db_instance.db_instance.address}/${aws_db_instance.db_instance.name}"
-}
