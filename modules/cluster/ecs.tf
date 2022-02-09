@@ -63,6 +63,12 @@ resource "aws_ecs_service" "main" {
   deployment_minimum_healthy_percent = "90"
 
 
+  network_configuration {
+        security_groups = [aws_security_group.security_group_port_i80.id]
+        subnets =aws_subnet.private.*.id     
+        
+    }
+
   capacity_provider_strategy {
     capacity_provider = aws_ecs_capacity_provider.capacity_provider.name
     weight = 1
