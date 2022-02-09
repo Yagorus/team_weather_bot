@@ -1,3 +1,4 @@
+/*
 resource "aws_alb" "application_load_balancer" {
   name               = "${var.app_name}-${var.environment}-alb"
   internal           = false
@@ -54,3 +55,4 @@ resource "aws_alb_listener_rule" "listener_rule" {
     }        
   }
 }
+*/
