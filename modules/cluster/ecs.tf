@@ -12,6 +12,7 @@ resource "aws_ecs_cluster" "aws_ecs_cluster" {
 
 resource "aws_ecs_task_definition" "aws_ecs_task" {
   family = "${var.app_name}-${var.environment}-task"
+  network_mode             = "awsvpc"
   execution_role_arn       = aws_iam_role.ecsTaskExecutionRole.arn
   task_role_arn            = aws_iam_role.ecsTaskExecutionRole.arn
   #container_definitions    = data.template_file.cb_bot.rendered
@@ -83,8 +84,8 @@ resource "aws_ecs_capacity_provider" "capacity_provider" {
     managed_termination_protection = "DISABLED"
   
     managed_scaling {
-      maximum_scaling_step_size = var.az_count*2
-      minimum_scaling_step_size = 2
+      maximum_scaling_step_size = 2
+      minimum_scaling_step_size = 1
       status                    = "ENABLED"
       target_capacity           = 100
     }
