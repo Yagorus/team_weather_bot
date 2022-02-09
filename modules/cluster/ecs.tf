@@ -15,6 +15,7 @@ resource "aws_ecs_task_definition" "aws_ecs_task" {
   execution_role_arn       = aws_iam_role.ecsTaskExecutionRole.arn
   task_role_arn            = aws_iam_role.ecsTaskExecutionRole.arn
   #container_definitions    = data.template_file.cb_bot.rendered
+  
   container_definitions     = jsonencode(
 [
   {
@@ -30,6 +31,15 @@ resource "aws_ecs_task_definition" "aws_ecs_task" {
         "hostPort": var.app_port
       }
     ]
+
+    logConfiguration =  {
+       logDriver = "awslogs"
+       options ={
+           awslogs-group = "${var.app_name}-${var.environment}-ecs-log"
+           awslogs-region = var.aws_region
+           awslogs-stream-prefix ="ecs"
+       }
+   }
 
   environment = [
      {
@@ -78,5 +88,14 @@ resource "aws_ecs_capacity_provider" "capacity_provider" {
       status                    = "ENABLED"
       target_capacity           = 100
     }
+  }
+}
+
+resource "aws_cloudwatch_log_group" "log_group" {
+  name              = "${var.app_name}-${var.environment}-ecs-log"
+  retention_in_days = 30
+
+  tags = {
+    Name = "cb-log-group"
   }
 }
