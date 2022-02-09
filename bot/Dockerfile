@@ -18,6 +18,7 @@ RUN env | grep "APP_WEATHER_KEY"
 
 
 
+
 #workdir
 WORKDIR /weather_bot
 
@@ -28,7 +29,7 @@ COPY requirements.txt requirements.txt
 #RUN python -m venv venv
 RUN pip install --no-cache-dir -r requirements.txt
 #copy files required for the app run
-COPY weather.py weather_json.py ./
+COPY models.py weather.py weather_json.py ./
 
 #the port number the container should expose
 EXPOSE 80
