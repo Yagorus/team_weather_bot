@@ -3,11 +3,9 @@ FROM python:3.8-slim-buster
 #ARG telegram_bot_token
 ARG token
 ARG api_key
-ARG db_url
 
 ENV APP_TOKEN=$token
 ENV APP_WEATHER_KEY=$api_key
-ENV APP_DATABASE_URL=&db_url
 
 #docker build --build-arg token='yyyy' --build-arg api_key='yyyy' -t weather:v2 .
 
@@ -17,7 +15,6 @@ ENV APP_DATABASE_URL=&db_url
 
 RUN env | grep "APP_TOKEN"
 RUN env | grep "APP_WEATHER_KEY"
-RUN env | grep "APP_DATABASE_URL"
 
 
 
