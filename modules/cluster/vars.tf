@@ -51,7 +51,7 @@ variable "engine_version" {
     default     = "12.9"
 }
 variable "username" {
-    default     = "postgres"
+    default   = "postgres"
 }
 variable "instance_class" {
   default = "db.t2.micro" 

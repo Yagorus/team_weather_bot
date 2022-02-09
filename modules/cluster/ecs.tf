@@ -30,6 +30,7 @@ resource "aws_ecs_task_definition" "aws_ecs_task" {
         "hostPort": var.app_port
       }
     ]
+    
   environment = [
      {
        name ="APP_DATABASE_URL"
