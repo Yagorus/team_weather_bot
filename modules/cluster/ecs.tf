@@ -36,14 +36,7 @@ resource "aws_ecs_task_definition" "aws_ecs_task" {
        value = "postgresql://${aws_db_instance.db_instance.username}:${data.aws_ssm_parameter.password_db.value}@${aws_db_instance.db_instance.address}:5432/${aws_db_instance.db_instance.name}"
      }
   ]
-    secrets = [
-     {
-       name ="DB_PASSWORD"
-       valueFrom = "${data.aws_ssm_parameter.password_db.arn}"
-     }
-    ]
-
-  }
+}
 ])
 
 }

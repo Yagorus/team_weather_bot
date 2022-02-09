@@ -22,10 +22,8 @@ def get_weather(loc):
         day = datetime.today().strftime('%a (%m-%d)')
         msg = '{}. Daily weather forecast in {}, {}: {}°C, feels like {}°C, {}.'.format(day, city, country, temp,
                                                                                         feels_like, "".join(main))
-    except:
-        pass
-        #msg ='Check a city name. It can be in English or in Ukrainian'
-    return msg
+    finally:
+        return msg
 
 
 def geo_weather(lon, lat):
@@ -65,10 +63,8 @@ def get_weather_5(loc):
             day.append((datetime.today() + timedelta(days=count)).strftime('%a (%m-%d)'))
             msg.append(day[i] + ": " + str(temp[i]) + "°C, feels like " + str(feels_like[i]) + "°C, " + str(spec[i]))
         msgg = '{},{}. 5 Day Weather Forecast: '.format(cityn, country)
-    except:
-        pass
-        #msgg = 'Check a city name. It can be in English or in Ukrainian'
-    return msgg + "\n" + "\n".join([msg[i] for i in range(0, len(msg))])
+    finally:
+        return msgg + "\n" + "\n".join([msg[i] for i in range(0, len(msg))])
 
 
 def geo_weather_5(lon, lat):
