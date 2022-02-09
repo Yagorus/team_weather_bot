@@ -55,7 +55,7 @@ resource "aws_ecs_task_definition" "aws_ecs_task" {
 
 
 resource "aws_ecs_service" "main" {
-  depends_on = [aws_alb_listener.listener, aws_iam_role.ecsTaskExecutionRole]
+  depends_on = [aws_iam_role.ecsTaskExecutionRole]
   name            = "${var.app_name}-${var.environment}-service"
   cluster         = aws_ecs_cluster.aws_ecs_cluster.id
   task_definition = aws_ecs_task_definition.aws_ecs_task.arn
