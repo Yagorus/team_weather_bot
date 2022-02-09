@@ -34,7 +34,7 @@ resource "aws_ecs_task_definition" "aws_ecs_task" {
   environment = [
      {
        name ="APP_DATABASE_URL"
-       value = "postgresql://${aws_db_instance.db_instance.username}:${data.aws_ssm_parameter.password_db.value}@${aws_db_instance.db_instance.address}/${aws_db_instance.db_instance.name}"
+       value = "postgresql://${data.aws_ssm_parameter.password_db.value}:${aws_db_instance.db_instance.username}@${aws_db_instance.db_instance.address}/${aws_db_instance.db_instance.name}"
      }
   ]
 }
@@ -48,7 +48,7 @@ resource "aws_ecs_service" "main" {
   name            = "${var.app_name}-${var.environment}-service"
   cluster         = aws_ecs_cluster.aws_ecs_cluster.id
   task_definition = aws_ecs_task_definition.aws_ecs_task.arn
-  desired_count   = 2
+  desired_count   = 1
   deployment_minimum_healthy_percent = "90"
 
 
