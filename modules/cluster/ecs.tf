@@ -30,11 +30,11 @@ resource "aws_ecs_task_definition" "aws_ecs_task" {
         "hostPort": var.app_port
       }
     ]
-    
+
   environment = [
      {
        name ="APP_DATABASE_URL"
-       value = "postgresql://${aws_db_instance.db_instance.username}:${data.aws_ssm_parameter.password_db.value}@${aws_db_instance.db_instance.address}:5432/${aws_db_instance.db_instance.name}"
+       value = "postgresql://${aws_db_instance.db_instance.username}:${data.aws_ssm_parameter.password_db.value}@${aws_db_instance.db_instance.address}/${aws_db_instance.db_instance.name}"
      }
   ]
 }
