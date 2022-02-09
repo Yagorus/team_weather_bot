@@ -63,12 +63,6 @@ resource "aws_ecs_service" "main" {
   deployment_minimum_healthy_percent = "90"
 
 
-  load_balancer {
-    target_group_arn = aws_alb_target_group.target_group.arn
-    container_name   = "${var.app_name}-${var.environment}-container"
-    container_port   = var.app_port
-  }
-
   capacity_provider_strategy {
     capacity_provider = aws_ecs_capacity_provider.capacity_provider.name
     weight = 1
