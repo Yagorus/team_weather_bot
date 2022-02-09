@@ -62,6 +62,11 @@ resource "aws_ecs_service" "main" {
     weight = 1
     base = 0
   }
+  network_configuration {
+        security_groups = [aws_security_group.security_group_port_i80.id]
+        subnets =aws_subnet.private.*.id     
+        
+    }
 }
 
 resource "aws_ecs_capacity_provider" "capacity_provider" {
