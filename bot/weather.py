@@ -26,7 +26,7 @@ s = Session()
 
 def start_handler(update, context: CallbackContext):
     chat_id = update.effective_chat.id
-    context.bot.send_message(chat_id=chat_id, text='Hello!')
+    context.bot.send_message(chat_id=chat_id, text='Hello yegor was here!')
     update.message.reply_text("Type /help for instructions.")
 
 
