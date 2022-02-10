@@ -7,7 +7,7 @@ resource "aws_db_instance" "db_instance" {
   vpc_security_group_ids  = [aws_security_group.db_security_group.id]
   db_subnet_group_name      = aws_db_subnet_group.default.name
   identifier           = var.db_name
-  username             = var.username
+  username             = var.username //postgres
   name                 = "weather"
   password             = data.aws_ssm_parameter.password_db.value
   parameter_group_name = "default.postgres12"
